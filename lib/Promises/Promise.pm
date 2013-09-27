@@ -13,7 +13,7 @@ class Promise {
 
     has $!deferred = die "You must supply an instance of Promises::Deferred";
 
-    method new($x) { $class->next::method( deferred => $x ); }
+    method new($class: $x) { $class->next::method( deferred => $x ); }
 
     method then    { $!deferred->then( @_ ) }
     method status  { $!deferred->status     }
