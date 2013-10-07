@@ -24,7 +24,7 @@ class Deferred {
     has $!promise  is ro;
     has $!result   is ro;
 
-    submethod BUILD { $!promise = Promises::Promise->new($self) }
+    method BUILD { $!promise = Promises::Promise->new($self) }
 
     # predicates for all the status possiblities
     method is_in_progress { $!status eq IN_PROGRESS }
